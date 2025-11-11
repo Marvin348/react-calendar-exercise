@@ -7,11 +7,11 @@ The app provides a simple calendar where users can create, view, filter, and man
 
 ### Desktop
 
-![Mobile Screenshot](./screenshot/desktop.png)
+![Mobile Screenshot](./screenshots/desktop.png)
 
 ### Mobile
 
-![Mobile Screenshot](./screenshot/mobile.png)
+![Mobile Screenshot](./screenshots/mobile.png)
 
 ## Video-Demo
 
