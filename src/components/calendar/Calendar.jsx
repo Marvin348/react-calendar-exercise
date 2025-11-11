@@ -25,8 +25,6 @@ const Calendar = () => {
   const toggleTheme = useEventStore((state) => state.toggleTheme);
   const isDark = useEventStore((state) => state.isDark);
 
-  console.log(events);
-
   const [selectedColor, setSelectedColor] = useState(null);
 
   const monthStart = startOfMonth(currentDate);
