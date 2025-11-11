@@ -2,7 +2,7 @@ import EventList from "./EventList";
 
 const EventLayout = () => {
   return (
-    <div className="h-auto lg:w-[20rem]">
+    <div className="lg:w-[20rem]">
       <EventList />
     </div>
   );

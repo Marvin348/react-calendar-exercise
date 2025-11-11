@@ -2,10 +2,17 @@ import { FiFilter } from "react-icons/fi";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { FaArrowsRotate } from "react-icons/fa6";
 import useToggle from "../../hooks/useToggle";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useEventStore from "../../store/useEventStore";
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+import { format } from "date-fns";
 
-const CalendarControls = ({ setSelectedColor }) => {
+const CalendarControls = ({
+  setSelectedColor,
+  goToNextMonth,
+  goToPrevMonth,
+  currentDate,
+}) => {
   const events = useEventStore((state) => state.events);
   const toggleTheme = useEventStore((state) => state.toggleTheme);
   const isDark = useEventStore((state) => state.isDark);
@@ -30,8 +37,19 @@ const CalendarControls = ({ setSelectedColor }) => {
   }, [isDark]);
 
   return (
-    <div className="flex items-center justify-between gap-4">
-      <div className="">
+    <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center gap-2">
+        <button className="btn" onClick={goToPrevMonth}>
+          <FaLongArrowAltLeft />
+        </button>
+        <p className="w-32 text-center font-medium">
+          {format(currentDate, "MMMM yyyy")}
+        </p>
+        <button className="btn" onClick={goToNextMonth}>
+          <FaLongArrowAltRight />
+        </button>
+      </div>
+      <div className="flex items-center gap-2 sm:gap-4">
         <button className="btn" onClick={toggleFilter}>
           <FiFilter />
         </button>
@@ -58,8 +76,6 @@ const CalendarControls = ({ setSelectedColor }) => {
             </li>
           </ul>
         )}
-      </div>
-      <div>
         <button className="btn" onClick={() => toggleTheme()}>
           {isDark ? <FiSun /> : <FiMoon />}
         </button>

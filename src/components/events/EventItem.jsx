@@ -1,6 +1,4 @@
 import { format } from "date-fns";
-import { BiWorld } from "react-icons/bi";
-import { FaPenFancy } from "react-icons/fa";
 import DeleteBtn from "./DeleteBtn";
 import useEventStore from "../../store/useEventStore";
 
@@ -19,7 +17,7 @@ const EventItem = ({ event }) => {
         <span className="text-gray-900 text-sm underline">
           {day ? format(day, "dd.MM.yyyy") : ""}
         </span>
-        <h4 className="font-semibold text-lg">{title}</h4>
+        <h4 className="font-semibold">{title}</h4>
         <p className="font-medium">{location}</p>
         <p>{description}</p>
       </div>

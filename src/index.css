@@ -5,6 +5,9 @@
   margin: 0 auto;
   padding: 2rem;
 }
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
 @theme {
   --color-accent: #428bca;
 }
@@ -22,12 +25,12 @@
     @apply block group-focus-within:text-accent;
   }
   .color-picker-btn {
-    @apply size-6 rounded-full cursor-pointer
+    @apply size-6 rounded-full cursor-pointer;
   }
   .error-message {
-    @apply text-red-600 mt-1 text-xs
+    @apply text-red-600 mt-1 text-xs;
   }
   .btn {
-    @apply p-2 cursor-pointer rounded-full border border-gray-400 hover:border-black dark:hover:border-gray-300
+    @apply p-2 cursor-pointer rounded-full border border-gray-400 hover:border-black dark:hover:border-gray-300;
   }
 }

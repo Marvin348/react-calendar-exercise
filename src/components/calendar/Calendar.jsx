@@ -3,21 +3,15 @@ import {
   endOfMonth,
   startOfWeek,
   endOfWeek,
-  addDays,
-  format,
-  isSameMonth,
-  isToday,
-  formatDate,
   eachDayOfInterval,
   addMonths,
   subMonths,
   isSameDay,
 } from "date-fns";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CalendarItem from "./CalendarItem";
 import AddEventModal from "../events/AddEventModal";
 import useEventStore from "../../store/useEventStore";
-import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 import CalendarControls from "./CalendarControls";
 
 const Calendar = () => {
@@ -35,9 +29,6 @@ const Calendar = () => {
 
   const [selectedColor, setSelectedColor] = useState(null);
 
-  console.log(selectedColor);
-  // erstmal nur zum testen selectedColor
-
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);
   const start = startOfWeek(monthStart);
@@ -53,21 +44,13 @@ const Calendar = () => {
     <div
       className={`w-full dark:text-white ${events.length > 0 ? "flex-1" : ""}`}
     >
-      <div className="relative flex items-center justify-between mb-4 dark:text-white">
-        <div className="flex items-center gap-2">
-          <button className="btn" onClick={goToPrevMonth}>
-            <FaLongArrowAltLeft />
-          </button>
-          <p className="w-32 text-center font-medium">
-            {format(currentDate, "MMMM yyyy")}
-          </p>
-          <button className="btn" onClick={goToNextMonth}>
-            <FaLongArrowAltRight />
-          </button>
-        </div>
-        <div>
-          <CalendarControls setSelectedColor={setSelectedColor} />
-        </div>
+      <div className="relative mb-6 dark:text-white">
+        <CalendarControls
+          setSelectedColor={setSelectedColor}
+          goToNextMonth={goToNextMonth}
+          goToPrevMonth={goToPrevMonth}
+          currentDate={currentDate}
+        />
       </div>
       <div className="grid grid-cols-7 mb-2">
         {WEEKDAYS.map((day) => (
